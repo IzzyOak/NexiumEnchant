@@ -1,0 +1,11 @@
+main: com.nexiummc.nexiumenchant.NexiumEnchant
+version: 1.0
+name: NexiumEnchant
+author: Bad Wolf
+commands:
+    NexiumEnchant:
+        aliases: [nxe, nxenchant]
+        description: NexiumEnchant command.
+        usage: /<command> <list/enchant/unenchant> [enchantment] [enchantment_level]
+        permission: NexiumEnchant.command
+        permission-message: You do not have permission for this command!
