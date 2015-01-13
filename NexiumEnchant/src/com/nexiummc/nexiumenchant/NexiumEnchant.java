@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+//import net.minecraft.util.com.google.common.util.concurrent.AbstractScheduledService.Scheduler;
+import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
@@ -12,15 +14,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nexiummc.nexiumenchant.command.NexiumEnchantCommand;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
+import com.nexiummc.nexiumenchant.enchantments.Deepwounds;
 import com.nexiummc.nexiumenchant.enchantments.Lifesteal;
-import com.nexiummc.nexiumenchant.enchantments.Nasuea;
+import com.nexiummc.nexiumenchant.enchantments.Poison;
+import com.nexiummc.nexiumenchant.enchantments.Stun;
+import com.nexiummc.nexiumenchant.enchantments.Thunderblow;
 import com.nexiummc.nexiumenchant.listeners.EnchantmentListener;
 import com.nexiummc.nexiumenchant.scheduler.Scheduler;
 import com.nexiummc.nexiumenchant.test.ExplosiveProjectile;
 import com.nexiummc.nexiumenchant.test.UniversalTest;
-
-//import net.minecraft.util.com.google.common.util.concurrent.AbstractScheduledService.Scheduler;
-import org.apache.commons.lang.Validate;
 
 /**
  * Main CustomEnchants-API class.
@@ -67,8 +69,10 @@ public final class NexiumEnchant extends JavaPlugin {
 	public static final ExplosiveProjectile projectileEnchantment = new ExplosiveProjectile();
 	public static final UniversalTest enchantment = new UniversalTest();
 	public static final Lifesteal ToolEnchantment = new Lifesteal();
-	public static final Nasuea ToolEnchantment1 = new Nasuea();
-	
+	public static final Stun ToolEnchantment1 = new Stun();
+	public static final Poison ToolEnchantment2 = new Poison();
+	public static final Thunderblow ToolEnchantment3 = new Thunderblow();
+	public static final Deepwounds ToolEnchantment4 = new Deepwounds();
 	/**
 	 * CustomEnchant-API's FileConfiguration.
 	 */
