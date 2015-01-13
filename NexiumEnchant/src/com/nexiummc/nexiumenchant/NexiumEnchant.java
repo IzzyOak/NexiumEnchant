@@ -176,6 +176,7 @@ public final class NexiumEnchant extends JavaPlugin {
 		Scheduler.start();
 		getCommand("NexiumEnchant").setExecutor(new NexiumEnchantCommand());
 		pluginManager.registerEvents(new EnchantmentListener(), this);
+		pluginManager.registerEvents(new Thunderblow(), this);
 	}
 	
 	@Override
