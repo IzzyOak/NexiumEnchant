@@ -16,12 +16,13 @@ import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
 
-public class Stun extends BaseEnchantment implements ToolEnchantment{
+public class Poison extends BaseEnchantment implements ToolEnchantment{
 
 
-	public Stun() {
-		super("Stun", null, (short) 0, (short) 3);
+	public Poison() {
+		super("Poison", null, (short) 0, (short) 2);
 	}
+	
 
 	@Override
 	public ToolType getToolType() {
@@ -43,22 +44,21 @@ public class Stun extends BaseEnchantment implements ToolEnchantment{
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	@Override
 	public void onAttackEntity(ItemStack tool, LivingEntity attacker,
 			LivingEntity defender, short enchantLevel,
 			boolean usingCorrectToolType, EntityDamageByEntityEvent event) {
-		int edur = enchantLevel+2;
-		int dur = edur*50;
-		defender.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, dur, 20));
-		defender.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, dur, enchantLevel));
-		defender.getWorld().playSound(defender.getLocation(), Sound.HURT_FLESH, 1f, 0.1f);
-		defender.getWorld().playSound(defender.getLocation(), Sound.ANVIL_LAND, 0.1f, 10f);
+		
+		int dur = enchantLevel*20;
+		
+		defender.addPotionEffect(new PotionEffect(PotionEffectType.POISON, dur, enchantLevel));
+		defender.getWorld().playSound(defender.getLocation(), Sound.SPIDER_IDLE, 0.1f, 10f);
 		
 	}
 
 	@Override
 	public ChatColor[] getEnchantmentLorePrefix() {
-		return new ChatColor[] {ChatColor.BLUE};
+		return new ChatColor[] {ChatColor.GREEN};
 	}
 }
