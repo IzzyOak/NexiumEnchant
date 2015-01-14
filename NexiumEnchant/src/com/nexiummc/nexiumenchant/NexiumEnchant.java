@@ -9,13 +9,16 @@ import java.util.logging.Logger;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nexiummc.nexiumenchant.command.NexiumEnchantCommand;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
+import com.nexiummc.nexiumenchant.enchantments.ChillingBlow;
 import com.nexiummc.nexiumenchant.enchantments.Deepwounds;
 import com.nexiummc.nexiumenchant.enchantments.Lifesteal;
+import com.nexiummc.nexiumenchant.enchantments.Piercing;
 import com.nexiummc.nexiumenchant.enchantments.Poison;
 import com.nexiummc.nexiumenchant.enchantments.Stun;
 import com.nexiummc.nexiumenchant.enchantments.Thunderblow;
@@ -30,6 +33,10 @@ import com.nexiummc.nexiumenchant.test.UniversalTest;
  */
 public final class NexiumEnchant extends JavaPlugin {
 	
+	public static Plugin 			plugin;
+	protected Plugin	main	= NexiumEnchant.plugin;
+
+	public Plugin	getPlugin()	{	return this.main;	}
 	
 	/**
 	 * This only used in projectiles.
@@ -39,6 +46,7 @@ public final class NexiumEnchant extends JavaPlugin {
 	/**
 	 * Plugin manager.
 	 */
+
 	public static final PluginManager pluginManager = Bukkit.getPluginManager();
 	
 	/**
@@ -73,6 +81,8 @@ public final class NexiumEnchant extends JavaPlugin {
 	public static final Poison ToolEnchantment2 = new Poison();
 	public static final Thunderblow ToolEnchantment3 = new Thunderblow();
 	public static final Deepwounds ToolEnchantment4 = new Deepwounds();
+	public static final Piercing ToolEnchantment5 = new Piercing();
+	public static final ChillingBlow ToolEnchantment6 = new ChillingBlow();
 	/**
 	 * CustomEnchant-API's FileConfiguration.
 	 */
