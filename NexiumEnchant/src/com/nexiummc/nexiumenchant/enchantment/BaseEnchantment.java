@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
 import com.nexiummc.nexiumenchant.NexiumEnchant;
 
@@ -46,7 +47,11 @@ public abstract class BaseEnchantment {
 	 * @param minLevel Minimum level required for enchanting.
 	 * @param maxLevel Maximum level for enchanting.
 	 */
-	protected BaseEnchantment(String name, FileConfiguration config, short minLevel, short maxLevel) {
+	
+//	public Plugin	getPlugin()	{	return this.plugin;	}
+	//private final Plugin plugin = NexiumEnchant.plugin;
+		
+	protected BaseEnchantment(Plugin plugin, String name, FileConfiguration config, short minLevel, short maxLevel) {
 		Validate.notNull(name, "Name cannot be null!");
 		if (name.endsWith(" ") || name.startsWith(" ")) {
 			throw new IllegalArgumentException("Enchantment name cannot end or start with a space!");

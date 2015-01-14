@@ -13,6 +13,7 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
@@ -21,7 +22,7 @@ public class Thunderblow extends BaseEnchantment implements ToolEnchantment, Lis
 
 
 	public Thunderblow() {
-		super("Thunder", null, (short) 0, (short) 2);
+		super(NexiumEnchant.plugin, "Thunder", null, (short) 0, (short) 2);
 	}
 	
 

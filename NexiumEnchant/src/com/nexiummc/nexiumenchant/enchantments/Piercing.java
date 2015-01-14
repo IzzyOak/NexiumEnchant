@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
@@ -20,7 +21,7 @@ public class Piercing extends BaseEnchantment implements ToolEnchantment {
 
 		
 		public Piercing() {
-			super("Piercing", null, (short) 0, (short) 3);
+			super(NexiumEnchant.plugin,"Piercing", null, (short) 0, (short) 3);
 		}
 		
 			

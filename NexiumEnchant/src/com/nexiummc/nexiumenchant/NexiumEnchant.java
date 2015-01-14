@@ -24,8 +24,6 @@ import com.nexiummc.nexiumenchant.enchantments.Stun;
 import com.nexiummc.nexiumenchant.enchantments.Thunderblow;
 import com.nexiummc.nexiumenchant.listeners.EnchantmentListener;
 import com.nexiummc.nexiumenchant.scheduler.Scheduler;
-import com.nexiummc.nexiumenchant.test.ExplosiveProjectile;
-import com.nexiummc.nexiumenchant.test.UniversalTest;
 
 /**
  * Main CustomEnchants-API class.
@@ -33,10 +31,8 @@ import com.nexiummc.nexiumenchant.test.UniversalTest;
  */
 public final class NexiumEnchant extends JavaPlugin {
 	
-	public static Plugin 			plugin;
-	protected Plugin	main	= NexiumEnchant.plugin;
-
-	public Plugin	getPlugin()	{	return this.main;	}
+	public static Plugin plugin;
+	
 	
 	/**
 	 * This only used in projectiles.
@@ -74,8 +70,7 @@ public final class NexiumEnchant extends JavaPlugin {
 	 */
 	private static final Map<String, BaseEnchantment> enchantments = new HashMap<String, BaseEnchantment>();
 	
-	public static final ExplosiveProjectile projectileEnchantment = new ExplosiveProjectile();
-	public static final UniversalTest enchantment = new UniversalTest();
+	//public static final UniversalTest enchantment = new UniversalTest();
 	public static final Lifesteal ToolEnchantment = new Lifesteal();
 	public static final Stun ToolEnchantment1 = new Stun();
 	public static final Poison ToolEnchantment2 = new Poison();
@@ -186,7 +181,6 @@ public final class NexiumEnchant extends JavaPlugin {
 		Scheduler.start();
 		getCommand("NexiumEnchant").setExecutor(new NexiumEnchantCommand());
 		pluginManager.registerEvents(new EnchantmentListener(), this);
-		pluginManager.registerEvents(new Thunderblow(), this);
 	}
 	
 	@Override

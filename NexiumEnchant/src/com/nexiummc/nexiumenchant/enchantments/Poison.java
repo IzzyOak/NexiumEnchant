@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
@@ -20,7 +21,7 @@ public class Poison extends BaseEnchantment implements ToolEnchantment{
 
 
 	public Poison() {
-		super("Poison", null, (short) 0, (short) 2);
+		super(NexiumEnchant.plugin,"Poison", null, (short) 0, (short) 2);
 	}
 	
 

@@ -14,6 +14,7 @@ import org.bukkit.event.world.WorldEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 
+import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
@@ -22,7 +23,7 @@ public class Lifesteal extends BaseEnchantment implements ToolEnchantment {
 
 		
 		public Lifesteal() {
-			super("Lifesteal", null, (short) 0, (short) 3);
+			super(NexiumEnchant.plugin,"Lifesteal", null, (short) 0, (short) 3);
 		}
 		
 			
