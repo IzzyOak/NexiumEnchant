@@ -26,7 +26,11 @@ import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
 public class ChillingBlow extends BaseEnchantment implements ToolEnchantment, Listener{
 
 	NexiumEnchant PL;
+	Private Plugin plugin;
 	
+	ChillingBlow(Plugin plugin) {
+		this.plugin = plugin;
+	}
 
 	public ChillingBlow() {
 		super("Chillingblow", null, (short) 0, (short) 2);
@@ -166,7 +170,7 @@ public class ChillingBlow extends BaseEnchantment implements ToolEnchantment, Li
 								loc20.getBlock().setType(mat10);
 							this.cancel();
 						}
-					}.runTaskLater(PL.getPlugin(), 40l);
+					}.runTaskLater(plugin, 40l);
 				}
 			}
 		}
