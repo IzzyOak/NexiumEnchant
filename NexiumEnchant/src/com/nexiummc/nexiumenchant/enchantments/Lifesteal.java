@@ -1,7 +1,6 @@
 package com.nexiummc.nexiumenchant.enchantments;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Effect;
 import org.bukkit.GameMode;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Damageable;
@@ -10,20 +9,17 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.world.WorldEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
 
-import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
 
 public class Lifesteal extends BaseEnchantment implements ToolEnchantment {
 
-		
+
 		public Lifesteal() {
-			super(NexiumEnchant.plugin,"Lifesteal", null, (short) 0, (short) 3);
+			super("Lifesteal", null, (short) 0, (short) 3);
 		}
 		
 			

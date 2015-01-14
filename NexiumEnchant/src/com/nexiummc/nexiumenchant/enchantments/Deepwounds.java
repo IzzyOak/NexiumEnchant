@@ -11,7 +11,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.Tools;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
@@ -22,9 +21,8 @@ public class Deepwounds extends BaseEnchantment implements ToolEnchantment{
 	
 	Timer cd;
 	Tools tl;
-	
 	public Deepwounds() {
-		super(NexiumEnchant.plugin,"Deepwounds", null, (short) 0, (short) 2);
+		super("Deepwounds", null, (short) 0, (short) 2);
 	}
 
 	@Override

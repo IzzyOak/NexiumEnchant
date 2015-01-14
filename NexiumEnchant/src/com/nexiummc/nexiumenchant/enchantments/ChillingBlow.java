@@ -2,6 +2,7 @@ package com.nexiummc.nexiumenchant.enchantments;
 
 import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -25,9 +26,8 @@ import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
 
 public class ChillingBlow extends BaseEnchantment implements ToolEnchantment, Listener{
 
-//	private NexiumEnchant pl;
 	public ChillingBlow() {
-		super(NexiumEnchant.plugin, "Chillingblow", null, (short) 0, (short) 2);
+		super("Chillingblow", null, (short) 0, (short) 2);
 	}
 	
 
@@ -58,6 +58,7 @@ public class ChillingBlow extends BaseEnchantment implements ToolEnchantment, Li
 	int		chanceSpecialFreeze=10;
 	boolean	specialFreeze=true;
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onAttackEntity(ItemStack tool, LivingEntity attacker,
 			LivingEntity defender, short enchantLevel,
@@ -138,7 +139,7 @@ public class ChillingBlow extends BaseEnchantment implements ToolEnchantment, Li
 					final Location loc19 = loc9.clone();
 					final Location loc20 = loc10.clone();
 
-					new BukkitRunnable() {
+					Bukkit.getScheduler().runTaskLater(NexiumEnchant.instance(),new BukkitRunnable() {
 
 						@Override
 						public void run() {
@@ -164,7 +165,8 @@ public class ChillingBlow extends BaseEnchantment implements ToolEnchantment, Li
 								loc20.getBlock().setType(mat10);
 							this.cancel();
 						}
-					}.runTaskLater(NexiumEnchant.plugin, 40l);
+					}, 40L);
+					//.runTaskLater(getPlugin(), 40l);
 				}
 			}
 		}

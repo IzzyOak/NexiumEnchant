@@ -48,10 +48,7 @@ public abstract class BaseEnchantment {
 	 * @param maxLevel Maximum level for enchanting.
 	 */
 	
-//	public Plugin	getPlugin()	{	return this.plugin;	}
-	//private final Plugin plugin = NexiumEnchant.plugin;
-		
-	protected BaseEnchantment(Plugin plugin, String name, FileConfiguration config, short minLevel, short maxLevel) {
+	protected BaseEnchantment(String name, FileConfiguration config, short minLevel, short maxLevel) {
 		Validate.notNull(name, "Name cannot be null!");
 		if (name.endsWith(" ") || name.startsWith(" ")) {
 			throw new IllegalArgumentException("Enchantment name cannot end or start with a space!");
