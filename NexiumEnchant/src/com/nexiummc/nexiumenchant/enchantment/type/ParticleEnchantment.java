@@ -3,7 +3,7 @@ package com.nexiummc.nexiumenchant.enchantment.type;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.Event;
 
-import com.nexiummc.nexiumenchant.particle.Particle;
+import com.nexiummc.nexiumenchant.handlers.ParticleHandler.ParticleType;
 
 /**
  * For enchantments with particles.
@@ -25,6 +25,6 @@ public interface ParticleEnchantment {
 	 * @return The particle object that will apply particles.
 	 * @see {@link EnchantType}
 	 */
-	Particle applyParticles(LivingEntity attacker, LivingEntity defender, short enchantLevel, Event event, EnchantType type);
+//	Particle applyParticles(LivingEntity attacker, LivingEntity defender, short enchantLevel, Event event, EnchantType type);
 	
 }

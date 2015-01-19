@@ -4,7 +4,6 @@ import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
@@ -20,7 +19,6 @@ import com.nexiummc.nexiumenchant.enchantment.type.ParticleEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ProjectileEnchantment;
 import com.nexiummc.nexiumenchant.enchantment.type.ToolEnchantment;
 import com.nexiummc.nexiumenchant.handlers.ToolHandler.ToolType;
-import com.nexiummc.nexiumenchant.particle.Particle;
 
 /**
  * Implements all other enchantments. For convenience.
@@ -44,11 +42,12 @@ public abstract class UniversalEnchantment extends BaseEnchantment implements Bo
 	public void onConsume(Player player, ItemStack itemStack, short enchantLevel,
 			PlayerItemConsumeEvent event) {}
 	
-	@Override
+/*	@Override
 	public Particle applyParticles(LivingEntity attacker, LivingEntity defender,
 			short enchantLevel, Event event, EnchantType type) {
 		return null;
 	}
+*/	
 	
 	@Override
 	public boolean onShotHitObject(ItemStack itemStack, int ticksTravelled,

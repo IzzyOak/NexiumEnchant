@@ -113,11 +113,5 @@ public class UniversalTest extends UniversalEnchantment {
 		return null;
 	}
 	
-	@Override
-	public com.nexiummc.nexiumenchant.particle.Particle applyParticles(
-			LivingEntity attacker, LivingEntity defender, short enchantLevel,
-			Event event, EnchantType type) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }

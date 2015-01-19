@@ -1,78 +1,103 @@
 package com.nexiummc.nexiumenchant.enchantments;
 
 
-import java.util.Random;
-
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.BlockIterator;
 
-import com.nexiummc.nexiumenchant.NexiumEnchant;
 import com.nexiummc.nexiumenchant.enchantment.UniversalEnchantment;
-import com.nexiummc.nexiumenchant.enchantment.type.EnchantType;
-import com.nexiummc.nexiumenchant.handlers.EnchantmentHandler;
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
-import com.sk89q.worldedit.bukkit.selections.CuboidSelection;
-import com.sk89q.worldedit.patterns.Pattern;
-import com.sk89q.worldedit.regions.Region;
 
 public class Paint extends UniversalEnchantment {
 	
-	private static final ItemStack snowBallItem = new ItemStack(Material.SNOW_BALL);
+//	private static final ItemStack snowBallItem = new ItemStack(Material.SNOW_BALL);
 	
-	static {
-		EnchantmentHandler.applyEnchantment(snowBallItem, NexiumEnchant.projectileEnchantment, (short) 1);
-	}
+//	static {
+//		EnchantmentHandler.applyEnchantment(snowBallItem, NexiumEnchant.projectileEnchantment, (short) 1);
+//	}
 	
 	public Paint() {
 		super("Paint", null, (short) 1,(short) 5);
 	}
 	
-	@SuppressWarnings("deprecation")
-	private Pattern p;
+	
 	@Override
 	public void onShotSuccess(ItemStack bow, int ticksTravelled, short enchantLevel, LivingEntity attacker, LivingEntity defender,
 			EntityDamageByEntityEvent event) {
-		defender.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 120, 0), true);
+		if(event.getEntity() instanceof Player){
+			Player hit = (Player) event.getEntity();
+			
+		}
+		
 	}
-	public WorldEditPlugin getWorldEdit() {
+/*	public WorldEditPlugin getWorldEdit() {
 		Plugin p = Bukkit.getServer().getPluginManager().getPlugin("WorldEdit");
 		if (p instanceof WorldEditPlugin) return (WorldEditPlugin) p;
 		else return null;
-	}
+	}*/
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onShotHitObject(ItemStack bow, int ticksTravelled, short enchantLevel, LivingEntity shooter,
 			ProjectileHitEvent event) {
-			
-		Location location = event.getEntity().getLocation();
-		Random newloc = new Random();
-		Location s1 = location.add(newloc.nextInt(1), newloc.nextInt(1), newloc.nextInt(1));
-		Location s2 = location.subtract(newloc.nextInt(1), newloc.nextInt(1), newloc.nextInt(1));
-		World world = Bukkit.getServer().getWorld(name);
-		CuboidSelection s = new CuboidSelection(world, s1, s2);
-		Region r = s.getRegion();		
-		EditSession.replaceBlocks(s, 1, 2);
+			if(event.getEntity() instanceof Snowball ){
+				
 		
+		Snowball arrow = (Snowball)event.getEntity();
+		World world = arrow.getWorld();
+		BlockIterator iterator = new BlockIterator(world, arrow.getLocation().toVector(), arrow.getVelocity().normalize(), 0, 4);
 		
+		Block hitBlock = null;
+		 
+	    while(iterator.hasNext()) {
+	        hitBlock = iterator.next();
+	        if(hitBlock.getTypeId()!=0) //Check all non-solid blockid's here.
+	            break;
+	    }
+	 
+	    if(hitBlock.getTypeId()==159){
+	    	hitBlock.setData( (byte)6);	        
+	}
+		
+	}else if(!(event.getEntity() instanceof Snowball)){
 		return true;
+	}
+		
+		
+		
+		
+		
+		
+		
 		/*	Location location = event.getEntity().getLocation();
+		Random newloc = new Random();
+		Location max = location.add(newloc.nextInt(1), newloc.nextInt(1), newloc.nextInt(1));
+		Location min = location.subtract(newloc.nextInt(1), newloc.nextInt(1), newloc.nextInt(1));
+		Material replace = Material.getMaterial(159);
+		Material with = Material.getMaterial(159);
+		 for (int x = min.getBlockX(); x <= max.getBlockX();) {
+		        for (int y = min.getBlockY(); y <= max.getBlockY();) {
+		            for (int z = min.getBlockZ(); z <= max.getBlockZ();) {
+		                Block blk = min.getWorld().getBlockAt(new Location(min.getWorld(), x, y, z));
+		                if (blk.getType() == replace) {
+		                    blk.setType(with);
+		                    blk.setData( (byte)6 );
+		               }
+		            }
+		        }
+		    }
+		return true;
+			Location location = event.getEntity().getLocation();
 		location.getBlock().setType(Material.ANVIL);
 		ThrownPotion snowball;
 		Random random = new Random();
@@ -90,27 +115,14 @@ public class Paint extends UniversalEnchantment {
 		}
 		return true;
 		*/
+		return true;
 	}
 	
-	private int randomNegative(int someInt, Random random) {
-		return random.nextInt(2) == 0 ? -someInt : someInt;
-	}
 	
 	@Override
 	public void onBreakBlock(ItemStack tool, Block block, short enchantLevel,
 			Player player, boolean usingCorrectToolType, BlockBreakEvent event) {
-		switch (enchantLevel) {
-			case 1:
-				block.setType(Material.BEACON);
-				break;
-			case 2:
-				block.setType(Material.ANVIL);
-				break;
-			default:
-				block.setType(Material.BEDROCK);
-				break;
-		}
-		event.setCancelled(true); //Illegal statement, SHOULD NEVER BE CALLED ON MONITOR. TODO Find a fix.
+		
 	}
 	
 	@Override
@@ -138,11 +150,12 @@ public class Paint extends UniversalEnchantment {
 		return null;
 	}
 	
-	@Override
+/*	@Override
 	public com.nexiummc.nexiumenchant.particle.Particle applyParticles(
 			LivingEntity attacker, LivingEntity defender, short enchantLevel,
 			Event event, EnchantType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+*/
 }

@@ -18,6 +18,7 @@ import com.nexiummc.nexiumenchant.enchantment.BaseEnchantment;
 import com.nexiummc.nexiumenchant.enchantments.ChillingBlow;
 import com.nexiummc.nexiumenchant.enchantments.Deepwounds;
 import com.nexiummc.nexiumenchant.enchantments.Lifesteal;
+import com.nexiummc.nexiumenchant.enchantments.Paint;
 import com.nexiummc.nexiumenchant.enchantments.Piercing;
 import com.nexiummc.nexiumenchant.enchantments.Poison;
 import com.nexiummc.nexiumenchant.enchantments.Stun;
@@ -78,6 +79,7 @@ public final class NexiumEnchant extends JavaPlugin {
 	public static final Deepwounds ToolEnchantment4 = new Deepwounds();
 	public static final Piercing ToolEnchantment5 = new Piercing();
 	public static final ChillingBlow ToolEnchantment6 = new ChillingBlow();
+	public static final Paint projectileEnchantment = new Paint();
 	/**
 	 * CustomEnchant-API's FileConfiguration.
 	 */
